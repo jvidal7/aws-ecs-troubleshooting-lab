@@ -10,7 +10,7 @@ As a Cloud Support Engineer, the objective was to diagnose and resolve issues re
 
 ## 🏗️ Architecture Diagram
 
-![Architecture Diagram](architecture-diagram.png)
+![Architecture Diagram](architecture-diagram.gif)
 
 ---
 
