@@ -90,6 +90,21 @@ Created a custom VPC:
 * NAT Gateway: None
 
 ![VPC-createion-page](images/VPC-creation-page.png)
+
+Step 4: Security Groups Configuration
+ALB Security Group (EduTech-ALB-SG)
+HTTP (80) → 0.0.0.0/0
+HTTPS (443) → 0.0.0.0/0
+Container Security Group (EduTech-Container-SG)
+Port 3000 → Only from ALB security group
+
+
+
+ALB security group rules
+![ALB Security Group Rules Creation](images/ALB-security-group-rules-Creation.png)
+
+Container security group rules
+![Container security group rules](images/Container-security-group-rules.png)
 ---
 
 ## ✅ Outcome
