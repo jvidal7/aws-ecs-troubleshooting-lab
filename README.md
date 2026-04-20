@@ -43,6 +43,22 @@ As a Cloud Support Engineer, the objective was to diagnose and resolve issues re
 5. Validated container image availability in ECR
 
 ---
+⚙️ Environment Setup (AWS Infrastructure)
+
+Overview
+This section outlines the setup of the AWS environment required to host a containerized Learning Management System (LMS). It includes IAM roles, networking (VPC), and security group configurations necessary for a secure and scalable deployment.
+
+Prerequisites
+AWS account with administrative access
+Basic understanding of AWS networking concepts
+Access to AWS Console
+
+Step 1: AWS Account & Region Setup
+Logged into AWS Console
+Selected region: us-east-1
+
+
+---
 
 ## ✅ Outcome
 
