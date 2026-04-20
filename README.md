@@ -74,6 +74,7 @@ Created two IAM roles for ECS:
    * CloudWatchLogsFullAccess
   
 ![EduTech-ECS-Service-Roles-Creation](images/EduTech-ECS-Service-Role-Creation.png)
+
 ![Edu-ECS-Task-Role-Creation-and-Roles](images/EduTech-ECS-Task-Role-Creation-and-Roles.png)
 ---
 
