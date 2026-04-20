@@ -57,7 +57,7 @@ Step 1: AWS Account & Region Setup
 Logged into AWS Console
 Selected region: us-east-1
 
-
+![Region Selection](images/region.png)
 ---
 
 ## ✅ Outcome
