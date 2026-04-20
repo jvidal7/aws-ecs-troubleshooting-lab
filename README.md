@@ -58,6 +58,20 @@ Logged into AWS Console
 Selected region: us-east-1
 
 ![Selected Region](images/Selected-region.png)
+
+Step 2: IAM Role Configuration
+
+Created two IAM roles for ECS:
+
+1. ECS Service Role
+ * Service: Elastic Container Service
+ * Role Name: EduTech-ECS-Service-Role
+
+2. ECS Task Execution Role
+ * Role Name: EduTech-ECS-Task-Role
+ * Policies attached:
+   * AmazonECSTaskExecutionRolePolicy
+   * CloudWatchLogsFullAccess
 ---
 
 ## ✅ Outcome
