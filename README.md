@@ -100,11 +100,11 @@ Port 3000 → Only from ALB security group
 
 
 
-ALB security group rules
+ALB security group rules:
 
 ![ALB Security Group Rules Creation](images/ALB-security-group-rules-Creation.png)
 
-Container security group rules
+Container security group rules:
 
 ![Container security group rules](images/Container-security-group-rules.png)
 ---
