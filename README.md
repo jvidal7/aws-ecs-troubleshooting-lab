@@ -76,6 +76,20 @@ Created two IAM roles for ECS:
 ![EduTech-ECS-Service-Roles-Creation](images/EduTech-ECS-Service-Role-Creation.png)
 
 ![Edu-ECS-Task-Role-Creation-and-Roles](images/EduTech-ECS-Task-Role-Creation-and-Roles.png)
+
+
+Step 3: VPC Network Setup
+
+Created a custom VPC:
+
+* Name: EduTech-VPC
+* CIDR: 10.0.0.0/16
+* Availability Zones: 2
+* Public Subnets: 2
+* Private Subnets: 0 (lab simplification)
+* NAT Gateway: None
+
+![VPC-createion-page](images/VPC-creation-page.png)
 ---
 
 ## ✅ Outcome
