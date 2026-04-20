@@ -99,7 +99,6 @@ Container Security Group (EduTech-Container-SG)
 Port 3000 → Only from ALB security group
 
 
-
 ALB security group rules:
 
 ![ALB Security Group Rules Creation](images/ALB-security-group-rules-Creation.png)
@@ -107,6 +106,16 @@ ALB security group rules:
 Container security group rules:
 
 ![Container security group rules](images/Container-security-group-rules.png)
+
+Step 5: Resource Documentation
+
+Recorded key resource identifiers:
+
+* VPC ID
+* Subnet IDs
+* Security Group IDs
+* IAM Role ARNs
+
 ---
 
 ## ✅ Outcome
