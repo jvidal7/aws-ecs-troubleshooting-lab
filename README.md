@@ -141,6 +141,18 @@ In this phase, I containerized the LMS application and deployed it using AWS ECS
 Created a repository to store container images.
 
 ![ECR Repository](images/ecr-repository.png)
+
+#### Step 2: Build and Push Docker Image
+
+- Built the LMS application Docker image locally using a custom Dockerfile  
+- Tagged the image with the Amazon ECR repository URI to prepare for cloud deployment  
+- Authenticated Docker with AWS using the AWS CLI  
+- Successfully pushed the container image to Amazon ECR  
+
+This process enables AWS ECS Fargate to securely pull and run the application in a scalable, containerized environment.
+
+![Docker Image](images/docker-build.png)
+
 ---
 
 ## ✅ Outcome
