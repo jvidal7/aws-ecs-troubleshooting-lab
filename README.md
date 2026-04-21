@@ -111,10 +111,17 @@ Step 5: Resource Documentation
 
 Recorded key resource identifiers:
 
-* VPC ID
-* Subnet IDs
-* Security Group IDs
-* IAM Role ARNs
+VPC ID & Subnet IDs
+  
+![VPC ID and Subnet](images/VPC-ID-from-VPC-Dashboard.png)
+
+Security Group IDs
+
+![Security Group IDs](images/Security-group-IDs-from-VPC-Dashboard.png)
+
+IAM Role ARNs
+
+![IAM Role ARNs](images/IAM-role-ARNs-from-IAM.png)
 
 ---
 
