@@ -140,6 +140,7 @@ In this phase, I containerized the LMS application and deployed it using AWS ECS
 
 Created a repository to store container images.
 
+![ECR Repository](images/ecr-repository.png)
 ---
 
 ## ✅ Outcome
