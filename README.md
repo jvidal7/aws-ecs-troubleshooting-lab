@@ -142,6 +142,21 @@ Created a repository to store container images.
 
 ![ECR Repository](images/ecr-repository.png)
 
+#### Dockerfile Overview
+
+The application was containerized using a custom Dockerfile based on a lightweight Node.js image.
+
+Key configurations include:
+
+- Using `node:16-alpine` for a minimal base image  
+- Installing dependencies before copying full source code to optimize Docker layer caching  
+- Building the React application for production (`npm run build`)  
+- Serving static files using a lightweight Node server (`serve`)  
+- Exposing port 3000 for application access  
+
+📸 Screenshot:  
+![Dockerfile](images/dockerfile.png)
+
 #### Step 2: Build and Push Docker Image
 
 - Built the LMS application Docker image locally using a custom Dockerfile  
@@ -165,6 +180,7 @@ This process enables AWS ECS Fargate to securely pull and run the application in
 ![ECR Image Verification](images/ecr-image-verified.png)
 
 The successful presence of the image in ECR confirms that the container is ready to be deployed via AWS ECS.
+
 ---
 
 ## ✅ Outcome
