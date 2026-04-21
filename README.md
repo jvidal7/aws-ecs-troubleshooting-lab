@@ -153,6 +153,8 @@ This process enables AWS ECS Fargate to securely pull and run the application in
 
 ![Docker Image](images/docker-build.png)
 
+![Push Image](images/Container-Image-Pushed.png)
+
 ---
 
 ## ✅ Outcome
