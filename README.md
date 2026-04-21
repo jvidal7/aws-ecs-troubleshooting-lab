@@ -43,9 +43,10 @@ As a Cloud Support Engineer, the objective was to diagnose and resolve issues re
 5. Validated container image availability in ECR
 
 ---
-⚙️ Environment Setup (AWS Infrastructure)
+## Environment Setup (AWS Infrastructure)
 
-Overview
+## Overview
+
 This section outlines the setup of the AWS environment required to host a containerized Learning Management System (LMS). It includes IAM roles, networking (VPC), and security group configurations necessary for a secure and scalable deployment.
 
 Prerequisites
@@ -123,6 +124,17 @@ IAM Role ARNs:
 
 ![IAM Role ARNs](images/IAM-role-ARNs-from-IAM.png)
 
+## Container Deployment & ECS Setup
+
+### Overview
+
+In this phase, I containerized the LMS application and deployed it using AWS ECS Fargate. This included setting up an ECR repository, defining task configurations, and running the service behind a load balancer.
+
+### Steps Performed
+
+#### Step 1: Create ECR Repository
+
+Created a repository to store container images.
 ---
 
 ## ✅ Outcome
