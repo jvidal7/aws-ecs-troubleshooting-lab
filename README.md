@@ -74,11 +74,11 @@ Created two IAM roles for ECS:
    * AmazonECSTaskExecutionRolePolicy
    * CloudWatchLogsFullAccess
      
-EduTech-ECS-Service-Role
+EduTech-ECS-Service-Role:
 
 ![EduTech-ECS-Service-Roles-Creation](images/EduTech-ECS-Service-Role-Creation.png)
 
-EduTech-ECS-Task-Role
+EduTech-ECS-Task-Role:
 
 ![Edu-ECS-Task-Role-Creation-and-Roles](images/EduTech-ECS-Task-Role-Creation-and-Roles.png)
 
