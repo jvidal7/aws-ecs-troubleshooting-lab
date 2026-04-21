@@ -1,6 +1,6 @@
 # aws-ecs-troubleshooting-lab
 
-## 📌 Project Overview
+### 📌 Project Overview
 
 This project simulates a real-world cloud support scenario where a containerized LMS (Learning Management System) application deployed on AWS ECS Fargate experiences critical failures.
 
@@ -135,6 +135,7 @@ In this phase, I containerized the LMS application and deployed it using AWS ECS
 #### Step 1: Create ECR Repository
 
 Created a repository to store container images.
+
 ---
 
 ## ✅ Outcome
