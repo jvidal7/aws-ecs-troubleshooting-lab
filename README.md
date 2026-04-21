@@ -1,4 +1,4 @@
-# aws-ecs-troubleshooting-lab
+## aws-ecs-troubleshooting-lab
 
 ### 📌 Project Overview
 
