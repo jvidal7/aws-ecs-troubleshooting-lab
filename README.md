@@ -155,6 +155,16 @@ This process enables AWS ECS Fargate to securely pull and run the application in
 
 ![Push Image](images/Container-Image-Pushed.png)
 
+#### Step 3: Verify Image in Amazon ECR
+
+- Navigated to the Amazon ECR repository (`edutech-lms-frontend`)
+- Confirmed the container image was successfully pushed with the `latest` tag
+- Verified image metadata including URI, size, and status
+
+📸 Screenshot:
+![ECR Image Verification](images/ecr-image-verified.png)
+
+The successful presence of the image in ECR confirms that the container is ready to be deployed via AWS ECS.
 ---
 
 ## ✅ Outcome
