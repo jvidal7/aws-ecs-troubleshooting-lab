@@ -132,8 +132,7 @@ IAM Role ARNs:
 
 ### Overview
 
-In this phase, I containerized the LMS application and deployed it using AWS ECS Fargate. This included setting up an ECR repository, defining task configurations, and running the service behind a load balancer.
-
+In this phase, I containerized a React-based LMS frontend application using Docker and published the image to Amazon Elastic Container Registry (ECR). This prepares the application for deployment using AWS ECS in the next phase.
 ### Steps Performed
 
 #### Step 1: Create ECR Repository
@@ -181,19 +180,22 @@ This process enables AWS ECS Fargate to securely pull and run the application in
 
 The successful presence of the image in ECR confirms that the container is ready to be deployed via AWS ECS.
 
----
+##  ECS Deployment with AWS Fargate
 
-## ✅ Outcome
+### Overview
 
-* Successfully deployed and stabilized the LMS application
-* Resolved networking, IAM, and load balancing issues
-* Improved understanding of AWS container-based architectures
+In this phase, I deployed the containerized LMS frontend application to AWS using Elastic Container Service (ECS) with Fargate. This serverless deployment model eliminates the need to manage infrastructure while enabling scalable and highly available container execution.
 
 ---
 
-## 📚 Key Learnings
+### Steps Performed
 
-* Importance of IAM roles in ECS task execution
-* Debugging using CloudWatch logs
-* Understanding ALB routing and health checks
-* Real-world troubleshooting mindset in cloud environments
+#### Step 1: Create ECS Cluster
+
+- Created an ECS cluster (`EduTech-LMS-Cluster`)
+- Selected AWS Fargate as the launch type (serverless infrastructure)
+
+![ECS Cluster](images/ecs-cluster.png)
+
+
+---
