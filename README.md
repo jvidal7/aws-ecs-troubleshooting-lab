@@ -244,4 +244,15 @@ ECS Service:
 
 ![Live Application](images/live-app.gif)
 
+## Key Outcomes
+
+In this phase of the project, I successfully:
+
+- Designed and provisioned an ECS cluster using AWS Fargate to support serverless container workloads  
+- Defined and configured task definitions to control container runtime behavior and resource allocation  
+- Implemented an Application Load Balancer to distribute incoming traffic and enable high availability  
+- Deployed a containerized LMS frontend application, making it accessible through a public endpoint  
+
+This phase demonstrates the end-to-end deployment of a cloud-native application using AWS-managed container services.
+
 ---
