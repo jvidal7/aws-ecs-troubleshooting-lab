@@ -255,4 +255,22 @@ In this phase of the project, I successfully:
 
 This phase demonstrates the end-to-end deployment of a cloud-native application using AWS-managed container services.
 
+## ECS Troubleshooting: From Symptoms to Solutions
+
+### Overview
+
+In this phase, I simulated a container failure by introducing an invalid health check to observe how ECS handles unhealthy tasks and recovers from errors.
+
+Issue Introduced (Task Revision 3)
+
+### Configured an invalid health check:
+
+CMD-SHELL, curl -f http://localhost:3000/non-existent-path || exit 1
+
+Failure Evidence
+
+![Live Application](images/Bad-Health-Check.png)
+
+![Live Application](images/Bad-Health-Check2.png)
+
 ---
