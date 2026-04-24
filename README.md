@@ -273,4 +273,17 @@ Failure Evidence
 
 ![Live Application](images/Bad-Health-Check2.png)
 
+![Live Application](images/Bad-Health-Check3.png)
+
+Diagnosis
+Tasks failed health checks and were marked UNHEALTHY
+ECS continuously stopped and restarted containers
+Service entered a restart loop due to invalid endpoint
+✅ Resolution
+
+Updated the health check to a valid endpoint and created a new task revision:
+
+CMD-SHELL, curl -f http://localhost:3000/ || exit 1
+
+
 ---
