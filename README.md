@@ -289,7 +289,7 @@ CMD-SHELL, curl -f http://localhost:3000/ || exit 1
 
 ### 📸 Service Recovery
 
-![Healthy Service](images/healthy-service.png)
+![Healthy Service](images/Healthy-Service.png)
 
 - Updated task definition with a valid health check endpoint  
 - Redeployed ECS service using the latest revision  
