@@ -277,13 +277,28 @@ Failure Evidence
 
 Diagnosis
 Tasks failed health checks and were marked UNHEALTHY
+ECS Events tab showed repeated “failed container health checks” messages
+Tasks were marked UNHEALTHY and moved to STOPPED state
 ECS continuously stopped and restarted containers
-Service entered a restart loop due to invalid endpoint
-✅ Resolution
+
+### Resolution
 
 Updated the health check to a valid endpoint and created a new task revision:
 
 CMD-SHELL, curl -f http://localhost:3000/ || exit 1
 
+### 📸 Service Recovery
 
+![Healthy Service](images/healthy-service.png)
+
+- Updated task definition with a valid health check endpoint  
+- Redeployed ECS service using the latest revision  
+- ECS successfully replaced failing tasks and restored service stability  
+
+### 🔍 Verification
+
+- Target group reported healthy container status  
+- ECS service returned to steady state  
+- No further health check failures observed
+  
 ---
