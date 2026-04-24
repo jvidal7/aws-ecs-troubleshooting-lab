@@ -223,5 +223,6 @@ Application Load Balancer:
 Target Group:
 ![Target Group](images/target-group.png)
 
-💡 *The ALB distributes incoming traffic and performs health checks for high availability.*
+*The ALB distributes incoming traffic and performs health checks for high availability.*
+
 ---
