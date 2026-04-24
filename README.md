@@ -197,5 +197,31 @@ In this phase, I deployed the containerized LMS frontend application to AWS usin
 
 ![ECS Cluster](images/ecs-cluster.png)
 
+*Fargate removes the need to manage EC2 instances, simplifying deployment and scaling.*
 
+#### Step 2: Create Task Definition
+
+- Defined task configuration (`EduTech-LMS-Task`)
+- Configured container to use ECR image
+- Set resource allocation (CPU & memory)
+- Configured port mapping (3000 → HTTP)
+
+![Task Definition](images/task-definition.png)
+
+*Task definitions define how containers run, including compute resources and networking.*
+
+#### Step 3: Configure Application Load Balancer
+
+- Created an internet-facing Application Load Balancer (`EduTech-LMS-ALB`)
+- Configured target group (`EduTech-LMS-TG`)
+- Set health check path (`/`)
+- Associated ALB with public subnets
+  
+Application Load Balancer:
+![Load Balancer](images/alb.png) 
+
+Target Group:
+![Target Group](images/target-group.png)
+
+💡 *The ALB distributes incoming traffic and performs health checks for high availability.*
 ---
