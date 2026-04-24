@@ -237,4 +237,11 @@ ECS Service:
 
 *ECS Service ensures containers remain running and automatically integrates with load balancing.*
 
+#### Step 5: Access Application
+
+- Retrieved Application Load Balancer DNS name
+- Accessed deployed LMS frontend via browser
+
+![Live Application](images/live-app.gif)
+
 ---
