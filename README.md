@@ -225,4 +225,16 @@ Target Group:
 
 *The ALB distributes incoming traffic and performs health checks for high availability.*
 
+#### Step 4: Create ECS Service
+
+- Deployed service (`EduTech-LMS-Service`) using Fargate
+- Linked service to task definition and load balancer
+- Configured networking (VPC, subnets, security groups)
+- Set desired task count to maintain availability
+
+ECS Service:
+![ECS Service](images/ecs-service.png)
+
+*ECS Service ensures containers remain running and automatically integrates with load balancing.*
+
 ---
