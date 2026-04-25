@@ -1,6 +1,6 @@
 ## aws-ecs-troubleshooting-lab
 
-### 📌 Project Overview
+### Project Overview
 
 This project simulates a real-world cloud support scenario where a containerized LMS (Learning Management System) application deployed on AWS ECS Fargate experiences critical failures.
 
@@ -8,7 +8,7 @@ As a Cloud Support Engineer, the objective was to diagnose and resolve issues re
 
 ---
 
-## 🏗️ Architecture Diagram
+## Architecture Diagram
 
 ![Architecture Diagram](images/architecture-diagram.gif)
 
@@ -287,7 +287,7 @@ Updated the health check to a valid endpoint and created a new task revision:
 
 CMD-SHELL, curl -f http://localhost:3000/ || exit 1
 
-### 📸 Service Recovery
+### Service Recovery
 
 ![Healthy Service](images/Healthy-Service.png)
 
@@ -295,7 +295,7 @@ CMD-SHELL, curl -f http://localhost:3000/ || exit 1
 - Redeployed ECS service using the latest revision  
 - ECS successfully replaced failing tasks and restored service stability  
 
-### 🔍 Verification
+### Verification
 
 - Target group reported healthy container status  
 - ECS service returned to steady state  
