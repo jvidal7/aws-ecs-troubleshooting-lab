@@ -300,5 +300,17 @@ CMD-SHELL, curl -f http://localhost:3000/ || exit 1
 - Target group reported healthy container status  
 - ECS service returned to steady state  
 - No further health check failures observed
-  
+
+ECS Troubleshooting: Resource Constraints
+### Overview
+
+In this phase, I simulated a resource constraint issue by reducing CPU and memory allocations to observe how ECS handles container instability and recovery.
+
+Issue Introduced (Task Revision)
+
+Reduced container resources:
+
+CPU: 0.25 vCPU
+Memory: 0.5 GB
+
 ---
