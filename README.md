@@ -295,22 +295,16 @@ CMD-SHELL, curl -f http://localhost:3000/ || exit 1
 - Redeployed ECS service using the latest revision  
 - ECS successfully replaced failing tasks and restored service stability  
 
-### Verification
+## Troubleshooting ALB Health Check Misconfiguration
 
-- Target group reported healthy container status  
-- ECS service returned to steady state  
-- No further health check failures observed
-
-ECS Troubleshooting: Resource Constraints
 ### Overview
 
-In this phase, I simulated a resource constraint issue by reducing CPU and memory allocations to observe how ECS handles container instability and recovery.
+In this phase, I simulated an Application Load Balancer (ALB) misconfiguration to understand how incorrect health check settings impact service availability and traffic routing.
 
-Issue Introduced (Task Revision)
+### Issue Introduced (Health Check Port Misconfiguration)
 
-Reduced container resources:
+The target group health check was intentionally configured with an incorrect port:
 
-CPU: 0.25 vCPU
-Memory: 0.5 GB
-
+Health Check Port: 3001 (incorrect)
+Application Port: 3000 (actual)
 ---
