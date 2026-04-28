@@ -320,6 +320,7 @@ After applying the misconfiguration, I monitored the target group:
 
  ![Unhealthy-Target](Unhealthy-Target.png)
 
+
  ![Health-Check-Errors](Health-Check-Errors.png)
 
 Using the AWS Console, I identified the root cause:
