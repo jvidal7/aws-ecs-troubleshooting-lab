@@ -365,4 +365,9 @@ Result
 Summary
 This exercise demonstrated how a simple ALB health check misconfiguration can disrupt service availability and how to systematically diagnose and resolve the issue using AWS tools.
 
+## Security Group Configuration Lab: Diagnosing and Fixing ALB Access Issues
+  
+### Overview
+In this phase, I simulated a security group misconfiguration to understand how network-level access controls impact Application Load Balancer (ALB) accessibility. By blocking all inbound traffic, I was able to observe how improper firewall rules can make an application completely unreachable.
+
 ---
