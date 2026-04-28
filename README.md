@@ -308,7 +308,7 @@ The target group health check was intentionally configured with an incorrect por
 Health Check Port: 3001 (incorrect)
 Application Port: 3000 (actual)
 
-![Misconfigured Health Check](Misconfigured-Health-Check.png)
+![Misconfigured Health Check](images/Misconfigured-Health-Check.png)
 
 Observing the Failure
 
@@ -318,10 +318,10 @@ After applying the misconfiguration, I monitored the target group:
 - Health checks failed consistently
 - Errors indicated connection timeout / refused connection
 
- ![Unhealthy-Target](Unhealthy-Target.png)
+ ![Unhealthy-Target](images/Unhealthy-Target.png)
 
 
- ![Health-Check-Errors](Health-Check-Errors.png)
+ ![Health-Check-Errors](images/Health-Check-Errors.png)
 
 Using the AWS Console, I identified the root cause:
 - ALB health checks were targeting the wrong port
@@ -345,7 +345,7 @@ To restore service, I corrected the health check configuration:
 Health Check Port: traffic-port
 This ensures the ALB checks the correct port that the application is listening on.
 
-![Fixed Health Check Configuration](Fixed-Health-Check-Configuration.png)
+![Fixed Health Check Configuration](images/Fixed-Health-Check-Configuration.png)
  
 Recovery Monitoring
 
@@ -355,7 +355,7 @@ After applying the fix:
 - Health checks began passing successfully
 - ALB resumed normal traffic routing
 
-![Healthy Targets](Healthy-Targets.png)
+![Healthy Targets](images/Healthy-Targets.png)
 
 Result
 - Service was fully restored
