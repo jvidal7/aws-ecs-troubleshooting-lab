@@ -2,9 +2,11 @@
 
 ### Project Overview
 
-This project simulates a real-world cloud support scenario where a containerized LMS (Learning Management System) application deployed on AWS ECS Fargate experiences critical failures.
+This project demonstrates the deployment and troubleshooting of a containerized Learning Management System (LMS) application on AWS using ECS Fargate.
 
-As a Cloud Support Engineer, the objective was to diagnose and resolve issues related to networking, IAM permissions, and load balancing.
+The focus of this lab was to simulate real-world cloud failures and systematically diagnose and resolve issues across container orchestration, networking, load balancing, and security configurations.
+
+Throughout the project, I identified and resolved multiple failure scenarios that impacted application availability and service reliability.
 
 ---
 
@@ -25,15 +27,15 @@ As a Cloud Support Engineer, the objective was to diagnose and resolve issues re
 ---
 
 ## Issues Simulated
-* ECS tasks failing to start due to misconfigured IAM roles
-* ALB health checks failing due to incorrect target group settings
-* Security group misconfigurations blocking traffic
-* Container image pull failures from ECR
+* ECS tasks failing due to incorrect IAM role configuration
+* Container health check failures causing task restarts
+* ALB misconfiguration leading to unhealthy targets
+* Resource constraints affecting container stability
+* Security group rules blocking inbound traffic to the application
 
 ---
 
 ## Troubleshooting Process
-
 1. Checked ECS task logs using CloudWatch
 2. Identified IAM permission issues preventing container startup
 3. Verified ALB target group and health check configuration
@@ -44,7 +46,6 @@ As a Cloud Support Engineer, the objective was to diagnose and resolve issues re
 ## Environment Setup (AWS Infrastructure)
 
 ## Overview
-
 This section outlines the setup of the AWS environment required to host a containerized Learning Management System (LMS). It includes IAM roles, networking (VPC), and security group configurations necessary for a secure and scalable deployment.
 
 Prerequisites
@@ -61,7 +62,6 @@ Selected region: us-east-1
 Step 2: IAM Role Configuration
 
 Created two IAM roles for ECS:
-
 1. ECS Service Role
  * Service: Elastic Container Service
  * Role Name: EduTech-ECS-Service-Role
@@ -84,7 +84,6 @@ EduTech-ECS-Task-Role:
 Step 3: VPC Network Setup
 
 Created a custom VPC:
-
 * Name: EduTech-VPC
 * CIDR: 10.0.0.0/16
 * Availability Zones: 2
@@ -95,6 +94,7 @@ Created a custom VPC:
 ![VPC-createion-page](images/VPC-creation-page.png)
 
 Step 4: Security Groups Configuration
+
 ALB Security Group (EduTech-ALB-SG)
 HTTP (80) → 0.0.0.0/0
 HTTPS (443) → 0.0.0.0/0
@@ -129,7 +129,6 @@ IAM Role ARNs:
 ## Container Deployment & ECS Setup
 
 ### Overview
-
 In this phase, I containerized a React-based LMS frontend application using Docker and published the image to Amazon Elastic Container Registry (ECR). This prepares the application for deployment using AWS ECS in the next phase.
 ### Steps Performed
 
@@ -207,9 +206,11 @@ In this phase, I deployed the containerized LMS frontend application to AWS usin
 - Associated ALB with public subnets
   
 Application Load Balancer:
+
 ![Load Balancer](images/alb.png) 
 
 Target Group:
+
 ![Target Group](images/target-group.png)
 
 *The ALB distributes incoming traffic and performs health checks for high availability.*
@@ -240,8 +241,9 @@ In this phase of the project, I successfully:
 
 This phase demonstrates the end-to-end deployment of a cloud-native application using AWS-managed container services.
 
-## ECS Troubleshooting: From Symptoms to Solutions
+---
 
+## ECS Troubleshooting: From Symptoms to Solutions
 ### Overview
 In this phase, I simulated a container failure by introducing an invalid health check to observe how ECS handles unhealthy tasks and recovers from errors.
 
@@ -279,7 +281,6 @@ CMD-SHELL, curl -f http://localhost:3000/ || exit 1
 - ECS successfully replaced failing tasks and restored service stability  
 
 ## Troubleshooting ALB Health Check Misconfiguration
-
 ### Overview
 In this phase, I simulated an Application Load Balancer (ALB) misconfiguration to understand how incorrect health check settings impact service availability and traffic routing.
 
@@ -316,7 +317,6 @@ Impact:
 - Simulated a real-world outage caused by configuration error
 
 ### Resolution: Fixing the Health Check
-
 To restore service, I corrected the health check configuration:
 
 Health Check Port: traffic-port
@@ -325,7 +325,6 @@ This ensures the ALB checks the correct port that the application is listening o
 ![Fixed Health Check Configuration](images/Fixed-Health-Check-Configuration.png)
  
 ### Recovery Monitoring
-
 After applying the fix:
 - Targets gradually transitioned back to Healthy
 - Health checks began passing successfully
@@ -340,6 +339,8 @@ Result:
 
 ### Summary
 This exercise demonstrated how a simple ALB health check misconfiguration can disrupt service availability and how to systematically diagnose and resolve the issue using AWS tools.
+
+---
 
 ## Security Group Configuration Lab: Diagnosing and Fixing ALB Access Issues
   
@@ -416,6 +417,7 @@ Key Takeaways:
 ### Summary
 This exercise demonstrated how a simple security group misconfiguration can block all inbound traffic and cause a full application outage. By identifying and correcting the firewall rules, normal service operation was restored.
 
+--- 
 
 ## Project Summary
 This project demonstrates the end-to-end deployment, troubleshooting, and management of a containerized application on AWS using modern cloud-native services.
