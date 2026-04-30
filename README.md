@@ -439,4 +439,31 @@ Key Takeaways:
 ### Summary:
 This exercise demonstrated how a simple security group misconfiguration can block all inbound traffic and cause a full application outage. By identifying and correcting the firewall rules, normal service operation was restored.
 
+
+## Project Summary
+This project demonstrates the end-to-end deployment, troubleshooting, and management of a containerized application on AWS using modern cloud-native services.
+
+Throughout the project, I:
+- Containerized a Learning Management System (LMS) application using Docker
+- Deployed the application on Amazon ECS Fargate with a scalable architecture
+- Configured an Application Load Balancer (ALB) for traffic distribution
+- Implemented networking and security controls using VPC and Security Groups
+- Diagnosed and resolved real-world issues including:
+-  Container health check failures
+-  Resource constraints
+-  ALB misconfigurations
+-  Security group access issues
+- Monitored system behavior using AWS service insights and logs
+  
+### Key Skills Demonstrated
+- Containerization with Docker
+- Cloud deployment using AWS ECS Fargate
+- Load balancing and traffic routing (ALB)
+- Network security and access control (Security Groups, VPC)
+- Troubleshooting and debugging cloud infrastructure
+- Observability using AWS monitoring tools
+
+### Final Thoughts
+This project provided hands-on experience with building and troubleshooting a production-style cloud environment. It highlights the importance of understanding how different AWS services interact and how small misconfigurations can impact system availability.
+
 ---
