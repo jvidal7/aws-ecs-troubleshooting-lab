@@ -136,17 +136,14 @@ In this phase, I containerized a React-based LMS frontend application using Dock
 ### Steps Performed
 
 #### Step 1: Create ECR Repository
-
 Created a repository to store container images.
 
 ![ECR Repository](images/ecr-repository.png)
 
 #### Dockerfile Overview
-
 The application was containerized using a custom Dockerfile based on a lightweight Node.js image.
 
 Key configurations include:
-
 - Using `node:16-alpine` for a minimal base image  
 - Installing dependencies before copying full source code to optimize Docker layer caching  
 - Building the React application for production (`npm run build`)  
@@ -157,7 +154,6 @@ Key configurations include:
 ![Dockerfile](images/dockerfile.png)
 
 #### Step 2: Build and Push Docker Image
-
 - Built the LMS application Docker image locally using a custom Dockerfile  
 - Tagged the image with the Amazon ECR repository URI to prepare for cloud deployment  
 - Authenticated Docker with AWS using the AWS CLI  
@@ -170,7 +166,6 @@ This process enables AWS ECS Fargate to securely pull and run the application in
 ![Push Image](images/Container-Image-Pushed.png)
 
 #### Step 3: Verify Image in Amazon ECR
-
 - Navigated to the Amazon ECR repository (`edutech-lms-frontend`)
 - Confirmed the container image was successfully pushed with the `latest` tag
 - Verified image metadata including URI, size, and status
@@ -183,7 +178,6 @@ The successful presence of the image in ECR confirms that the container is ready
 ##  ECS Deployment with AWS Fargate
 
 ### Overview
-
 In this phase, I deployed the containerized LMS frontend application to AWS using Elastic Container Service (ECS) with Fargate. This serverless deployment model eliminates the need to manage infrastructure while enabling scalable and highly available container execution.
 
 ---
@@ -191,7 +185,6 @@ In this phase, I deployed the containerized LMS frontend application to AWS usin
 ### Steps Performed
 
 #### Step 1: Create ECS Cluster
-
 - Created an ECS cluster (`EduTech-LMS-Cluster`)
 - Selected AWS Fargate as the launch type (serverless infrastructure)
 
@@ -200,7 +193,6 @@ In this phase, I deployed the containerized LMS frontend application to AWS usin
 *Fargate removes the need to manage EC2 instances, simplifying deployment and scaling.*
 
 #### Step 2: Create Task Definition
-
 - Defined task configuration (`EduTech-LMS-Task`)
 - Configured container to use ECR image
 - Set resource allocation (CPU & memory)
@@ -211,7 +203,6 @@ In this phase, I deployed the containerized LMS frontend application to AWS usin
 *Task definitions define how containers run, including compute resources and networking.*
 
 #### Step 3: Configure Application Load Balancer
-
 - Created an internet-facing Application Load Balancer (`EduTech-LMS-ALB`)
 - Configured target group (`EduTech-LMS-TG`)
 - Set health check path (`/`)
@@ -226,7 +217,6 @@ Target Group:
 *The ALB distributes incoming traffic and performs health checks for high availability.*
 
 #### Step 4: Create ECS Service
-
 - Deployed service (`EduTech-LMS-Service`) using Fargate
 - Linked service to task definition and load balancer
 - Configured networking (VPC, subnets, security groups)
@@ -238,16 +228,13 @@ ECS Service:
 *ECS Service ensures containers remain running and automatically integrates with load balancing.*
 
 #### Step 5: Access Application
-
 - Retrieved Application Load Balancer DNS name
 - Accessed deployed LMS frontend via browser
 
 ![Live Application](images/live-app.gif)
 
 ## Key Outcomes
-
 In this phase of the project, I successfully:
-
 - Designed and provisioned an ECS cluster using AWS Fargate to support serverless container workloads  
 - Defined and configured task definitions to control container runtime behavior and resource allocation  
 - Implemented an Application Load Balancer to distribute incoming traffic and enable high availability  
@@ -258,7 +245,6 @@ This phase demonstrates the end-to-end deployment of a cloud-native application 
 ## ECS Troubleshooting: From Symptoms to Solutions
 
 ### Overview
-
 In this phase, I simulated a container failure by introducing an invalid health check to observe how ECS handles unhealthy tasks and recovers from errors.
 
 Issue Introduced (Task Revision 3)
@@ -282,7 +268,6 @@ Failure Evidence:
 - ECS continuously stopped and restarted containers
 
 ### Resolution
-
 Updated the health check to a valid endpoint and created a new task revision:
 
 CMD-SHELL, curl -f http://localhost:3000/ || exit 1
@@ -298,11 +283,9 @@ CMD-SHELL, curl -f http://localhost:3000/ || exit 1
 ## Troubleshooting ALB Health Check Misconfiguration
 
 ### Overview
-
 In this phase, I simulated an Application Load Balancer (ALB) misconfiguration to understand how incorrect health check settings impact service availability and traffic routing.
 
 ### Issue Introduced (Health Check Port Misconfiguration)
-
 The target group health check was intentionally configured with an incorrect port:
 - Health Check Port: 3001 (incorrect)
 - Application Port: 3000 (actual)
@@ -310,7 +293,6 @@ The target group health check was intentionally configured with an incorrect por
 ![Misconfigured Health Check](images/Misconfigured-Health-Check.png)
 
 ### Observing the Failure
-
 After applying the misconfiguration, I monitored the target group:
 - Targets transitioned from Healthy → Unhealthy
 - Health checks failed consistently
@@ -327,7 +309,6 @@ Using the AWS Console, I identified the root cause:
 - This caused all targets to fail health checks
 
 Additionally:
-
 - Healthy host count dropped to zero
 - ALB stopped routing traffic entirely
 
@@ -354,7 +335,7 @@ After applying the fix:
 
 ![Healthy Targets](images/Healthy-Targets.png)
 
-Result
+Result:
 - Service was fully restored
 - Targets stabilized in a Healthy state
 - Application became accessible again via the load balancer
@@ -379,7 +360,7 @@ This configuration prevents any external requests from reaching the ALB.
 
 ![sg misconfigured](images/sg-misconfigured.png)
 
-Observing the Impact
+Observing the Impact:
 After applying the misconfigured security group to the ALB:
 
 - Application became inaccessible via browser
@@ -406,7 +387,6 @@ Impact:
 - Demonstrated how network controls directly affect availability
 
 ### Resolution: Fixing Security Group Rules
-
 To restore access, I reconfigured the ALB security group:
 Inbound Rules:
 HTTP (80) → 0.0.0.0/0
@@ -417,7 +397,6 @@ Alternatively, I reattached the original ALB security group with proper rules.
 ![Fixed sg settings](images/sg-fixed.png)
 
 ### Recovery Verification
-
 After applying the fix:
 - Application became accessible again via ALB DNS
 - Requests successfully reached the load balancer
@@ -436,7 +415,7 @@ Key Takeaways:
 - ALB can appear “healthy” but still be unreachable externally
 - Proper port configuration (80/443) is essential for public services
 
-### Summary:
+### Summary
 This exercise demonstrated how a simple security group misconfiguration can block all inbound traffic and cause a full application outage. By identifying and correcting the firewall rules, normal service operation was restored.
 
 
@@ -466,4 +445,5 @@ Throughout the project, I:
 ### Final Thoughts
 This project provided hands-on experience with building and troubleshooting a production-style cloud environment. It highlights the importance of understanding how different AWS services interact and how small misconfigurations can impact system availability.
 
+####
 ---
