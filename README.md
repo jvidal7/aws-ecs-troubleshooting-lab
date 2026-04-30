@@ -267,7 +267,7 @@ Issue Introduced (Task Revision 3)
 
 CMD-SHELL, curl -f http://localhost:3000/non-existent-path || exit 1
 
-Failure Evidence
+Failure Evidence:
 
 ![Live Application](images/Bad-Health-Check.png)
 
@@ -275,11 +275,11 @@ Failure Evidence
 
 ![Live Application](images/Bad-Health-Check3.png)
 
-Diagnosis
-Tasks failed health checks and were marked UNHEALTHY
-ECS Events tab showed repeated “failed container health checks” messages
-Tasks were marked UNHEALTHY and moved to STOPPED state
-ECS continuously stopped and restarted containers
+### Diagnosis
+- Tasks failed health checks and were marked UNHEALTHY
+- ECS Events tab showed repeated “failed container health checks” messages
+- Tasks were marked UNHEALTHY and moved to STOPPED state
+- ECS continuously stopped and restarted containers
 
 ### Resolution
 
@@ -304,16 +304,14 @@ In this phase, I simulated an Application Load Balancer (ALB) misconfiguration t
 ### Issue Introduced (Health Check Port Misconfiguration)
 
 The target group health check was intentionally configured with an incorrect port:
-
-Health Check Port: 3001 (incorrect)
-Application Port: 3000 (actual)
+- Health Check Port: 3001 (incorrect)
+- Application Port: 3000 (actual)
 
 ![Misconfigured Health Check](images/Misconfigured-Health-Check.png)
 
-Observing the Failure
+### Observing the Failure
 
 After applying the misconfiguration, I monitored the target group:
-
 - Targets transitioned from Healthy → Unhealthy
 - Health checks failed consistently
 - Errors indicated connection timeout / refused connection
@@ -338,7 +336,7 @@ Impact:
 - No healthy targets available to serve requests
 - Simulated a real-world outage caused by configuration error
 
-Resolution: Fixing the Health Check
+### Resolution: Fixing the Health Check
 
 To restore service, I corrected the health check configuration:
 
@@ -347,10 +345,9 @@ This ensures the ALB checks the correct port that the application is listening o
 
 ![Fixed Health Check Configuration](images/Fixed-Health-Check-Configuration.png)
  
-Recovery Monitoring
+### Recovery Monitoring
 
 After applying the fix:
-
 - Targets gradually transitioned back to Healthy
 - Health checks began passing successfully
 - ALB resumed normal traffic routing
@@ -362,7 +359,7 @@ Result
 - Targets stabilized in a Healthy state
 - Application became accessible again via the load balancer
 
-Summary
+### Summary
 This exercise demonstrated how a simple ALB health check misconfiguration can disrupt service availability and how to systematically diagnose and resolve the issue using AWS tools.
 
 ## Security Group Configuration Lab: Diagnosing and Fixing ALB Access Issues
@@ -370,7 +367,7 @@ This exercise demonstrated how a simple ALB health check misconfiguration can di
 ### Overview
 In this phase, I simulated a security group misconfiguration to understand how network-level access controls impact Application Load Balancer (ALB) accessibility. By blocking all inbound traffic, I was able to observe how improper firewall rules can make an application completely unreachable.
 
-Issue Introduced: Misconfigured Security Group
+### Issue Introduced: Misconfigured Security Group
 
 A new security group was created with no inbound rules, effectively blocking all incoming traffic:
 
@@ -393,7 +390,7 @@ After applying the misconfigured security group to the ALB:
 
 ![Alb Unhealthly Checks](images/alb-UnhealthlyChecks.png)
 
-Diagnosis
+### Diagnosis
 Investigation revealed:
 - The ALB security group had no inbound rules
 - Port 80/443 traffic was completely blocked
@@ -408,7 +405,7 @@ Impact:
 - Simulated a real-world outage caused by firewall misconfiguration
 - Demonstrated how network controls directly affect availability
 
-Resolution: Fixing Security Group Rules
+### Resolution: Fixing Security Group Rules
 
 To restore access, I reconfigured the ALB security group:
 Inbound Rules:
@@ -419,7 +416,7 @@ Alternatively, I reattached the original ALB security group with proper rules.
 
 ![Fixed sg settings](images/sg-fixed.png)
 
-Recovery Verification
+### Recovery Verification
 
 After applying the fix:
 - Application became accessible again via ALB DNS
@@ -439,7 +436,7 @@ Key Takeaways:
 - ALB can appear “healthy” but still be unreachable externally
 - Proper port configuration (80/443) is essential for public services
 
-Summary:
+### Summary:
 This exercise demonstrated how a simple security group misconfiguration can block all inbound traffic and cause a full application outage. By identifying and correcting the firewall rules, normal service operation was restored.
 
 ---
