@@ -12,7 +12,7 @@ Throughout the project, I identified and resolved multiple failure scenarios tha
 
 ## Architecture Diagram
 
-![Architecture Diagram](images/architecture-diagram.gif)
+![Architecture Diagram](images/architecture-diagram-updated.gif)
 
 ---
 
