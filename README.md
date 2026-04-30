@@ -370,4 +370,54 @@ This exercise demonstrated how a simple ALB health check misconfiguration can di
 ### Overview
 In this phase, I simulated a security group misconfiguration to understand how network-level access controls impact Application Load Balancer (ALB) accessibility. By blocking all inbound traffic, I was able to observe how improper firewall rules can make an application completely unreachable.
 
+Issue Introduced: Misconfigured Security Group
+
+A new security group was created with no inbound rules, effectively blocking all incoming traffic:
+
+- Security Group: EduTech-Misconfigured-SG
+- Inbound Rules: None (all traffic blocked)
+- Outbound Rules: Allow all
+
+This configuration prevents any external requests from reaching the ALB.
+
+![sg misconfigured](images/sg-misconfigured.png)
+
+Observing the Impact
+After applying the misconfigured security group to the ALB:
+
+- Application became inaccessible via browser
+- Requests resulted in timeout / connection errors
+- No inbound traffic reached the load balancer
+
+![alb timeout](images/alb-timeout-error.png)
+
+[Alb Unhealthly Checks](images/alb-UnhealthlyChecks.png)
+
+Diagnosis
+Investigation revealed:
+- The ALB security group had no inbound rules
+- Port 80/443 traffic was completely blocked
+- External users could not establish a connection to the ALB
+
+Additionally:
+- ALB remained running, but unreachable
+- Target group health may remain stable since internal checks can still pass
+
+Impact:
+- Complete loss of external access to the application
+- Simulated a real-world outage caused by firewall misconfiguration
+- Demonstrated how network controls directly affect availability
+
+
+
+
+
+
+
+
+
+
+
+
+
 ---
