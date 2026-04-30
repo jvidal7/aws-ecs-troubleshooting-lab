@@ -391,7 +391,7 @@ After applying the misconfigured security group to the ALB:
 
 ![alb timeout](images/alb-timeout-error.png)
 
-[Alb Unhealthly Checks](images/alb-UnhealthlyChecks.png)
+![Alb Unhealthly Checks](images/alb-UnhealthlyChecks.png)
 
 Diagnosis
 Investigation revealed:
