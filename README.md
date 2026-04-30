@@ -15,7 +15,6 @@ As a Cloud Support Engineer, the objective was to diagnose and resolve issues re
 ---
 
 ## Technologies Used
-
 * AWS ECS (Fargate)
 * Application Load Balancer (ALB)
 * Amazon ECR
@@ -26,7 +25,6 @@ As a Cloud Support Engineer, the objective was to diagnose and resolve issues re
 ---
 
 ## Issues Simulated
-
 * ECS tasks failing to start due to misconfigured IAM roles
 * ALB health checks failing due to incorrect target group settings
 * Security group misconfigurations blocking traffic
