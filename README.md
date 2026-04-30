@@ -408,16 +408,38 @@ Impact:
 - Simulated a real-world outage caused by firewall misconfiguration
 - Demonstrated how network controls directly affect availability
 
+Resolution: Fixing Security Group Rules
 
+To restore access, I reconfigured the ALB security group:
+Inbound Rules:
+HTTP (80) → 0.0.0.0/0
+HTTPS (443) → 0.0.0.0/0
 
+Alternatively, I reattached the original ALB security group with proper rules.
 
+![Fixed sg settings](images/sg-fixed.png)
 
+Recovery Verification
 
+After applying the fix:
+- Application became accessible again via ALB DNS
+- Requests successfully reached the load balancer
+- Service returned to normal operation
 
+![ALB Working](images/alb-working.png)
 
+Result:
+- ALB successfully accepted incoming traffic
+- Application accessibility fully restored
+- Security group rules validated and corrected
 
+Key Takeaways:
+- Security groups act as critical network firewalls in AWS
+- Missing inbound rules can completely block application access
+- ALB can appear “healthy” but still be unreachable externally
+- Proper port configuration (80/443) is essential for public services
 
-
-
+Summary:
+This exercise demonstrated how a simple security group misconfiguration can block all inbound traffic and cause a full application outage. By identifying and correcting the firewall rules, normal service operation was restored.
 
 ---
